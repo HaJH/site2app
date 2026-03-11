@@ -38,3 +38,4 @@ body {
 }
 .app-name.hidden { display: none; }
 #btn-menu { -webkit-app-region: no-drag; margin-left: 2px; }
+body.darwin .titlebar { padding-left: 90px; }

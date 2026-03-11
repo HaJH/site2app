@@ -1,6 +1,7 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('site2app', {
+  platform: process.platform,
   nav: {
     back: () => ipcRenderer.send('nav:back'),
     forward: () => ipcRenderer.send('nav:forward'),

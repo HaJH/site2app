@@ -11,6 +11,10 @@
   btnReload.addEventListener('click', () => window.site2app.nav.reload());
   btnMenu.addEventListener('click', () => window.site2app.menu.show());
 
+  if (window.site2app.platform === 'darwin') {
+    document.body.classList.add('darwin');
+  }
+
   function applyColors(colors) {
     document.body.style.background = colors.bg;
     document.body.style.color = colors.fg;
