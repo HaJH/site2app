@@ -1,0 +1,36 @@
+{
+  "name": "{{APP_ID}}",
+  "version": "1.0.0",
+  "description": "{{APP_NAME}} — powered by site2app",
+  "author": "site2app",
+  "main": "main.js",
+  "dependencies": {
+    "electron-window-state": "^5.0.3",
+    "electron-store": "^8.0.0"
+  },
+  "devDependencies": {
+    "electron": "34.0.0"
+  },
+  "build": {
+    "appId": "{{APP_ID}}",
+    "productName": "{{APP_NAME}}",
+    "directories": {
+      "output": "output"
+    },
+    "artifactName": "${productName}.${ext}",
+    "win": {
+      "icon": "icon.ico",
+      "target": ["dir"]
+    },
+    "nsis": {
+      "oneClick": true,
+      "allowToChangeInstallationDirectory": false,
+      "deleteAppDataOnUninstall": false,
+      "perMachine": false
+    },
+    "mac": {
+      "icon": "icon.icns",
+      "target": ["dir"]
+    }
+  }
+}

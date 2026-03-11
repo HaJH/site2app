@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';">
+  <link rel="stylesheet" href="titlebar.css">
+  <link rel="stylesheet" href="search.css">
+  <title>{{APP_NAME}}</title>
+</head>
+<body>
+  <div id="titlebar" class="titlebar">
+    <img id="app-icon" class="app-icon" src="../icon.png" alt="">
+    <div class="titlebar-nav">
+      <button id="btn-back" class="nav-btn" title="Back (Alt+←)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button id="btn-forward" class="nav-btn" title="Forward (Alt+→)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+      <button id="btn-reload" class="nav-btn" title="Reload (Ctrl+R)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M21 13a9 9 0 1 1-3-7.7L21 8"/></svg></button>
+    </div>
+    <span id="app-name" class="app-name">{{APP_NAME}}</span>
+    <button id="btn-menu" class="nav-btn" title="Menu"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></button>
+  </div>
+  <div id="searchbar" class="searchbar hidden">
+    <input id="search-input" type="text" placeholder="Find in page..." spellcheck="false">
+    <span id="search-count" class="search-count"></span>
+    <button id="btn-search-prev" class="search-btn" title="Previous (Shift+Enter)">&#9650;</button>
+    <button id="btn-search-next" class="search-btn" title="Next (Enter)">&#9660;</button>
+    <button id="btn-search-close" class="search-btn" title="Close (Esc)">&#10005;</button>
+  </div>
+  <script src="titlebar.js"></script>
+  <script src="search.js"></script>
+</body>
+</html>
