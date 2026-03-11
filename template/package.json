@@ -26,7 +26,9 @@
       "oneClick": true,
       "allowToChangeInstallationDirectory": false,
       "deleteAppDataOnUninstall": false,
-      "perMachine": false
+      "perMachine": false,
+      "shortcutName": "{{APP_NAME}}",
+      "uninstallDisplayName": "{{APP_NAME}}"
     },
     "mac": {
       "icon": "icon.icns",
