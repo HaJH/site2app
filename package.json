@@ -1,6 +1,6 @@
 {
   "name": "site2app",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Wrap any URL into a standalone desktop app",
   "type": "module",
   "bin": {
