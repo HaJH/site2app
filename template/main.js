@@ -104,6 +104,9 @@ function createWindow() {
   });
 
   mainWindow.contentView.addChildView(contentView);
+  // Use Chrome user agent to prevent Google OAuth blocking embedded browsers
+  const chromeUA = contentView.webContents.getUserAgent().replace(/Electron\/\S+ /, '');
+  contentView.webContents.setUserAgent(chromeUA);
   contentView.webContents.loadURL(APP_URL);
   updateContentBounds();
 
@@ -117,7 +120,19 @@ function createWindow() {
 
   mainWindow.on('resize', updateContentBounds);
 
-  contentView.webContents.setWindowOpenHandler(({ url }) => {
+  contentView.webContents.setWindowOpenHandler(({ url, features }) => {
+    const isPopup = features !== '';
+    if (isPopup) {
+      // OAuth and other popups: open in a new Electron window
+      const popup = new BrowserWindow({
+        width: 500,
+        height: 700,
+        parent: mainWindow,
+        webPreferences: { contextIsolation: true, nodeIntegration: false },
+      });
+      popup.loadURL(url);
+      return { action: 'deny' };
+    }
     if (new URL(url).origin !== APP_ORIGIN) {
       shell.openExternal(url);
       return { action: 'deny' };
