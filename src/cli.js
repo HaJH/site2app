@@ -11,7 +11,10 @@ import { generateAppId, substituteVariables } from './builder.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export function validateUrl(url) {
+export function normalizeUrl(url) {
+  if (!url.includes('://')) {
+    url = 'https://' + url;
+  }
   let parsed;
   try {
     parsed = new URL(url);
@@ -21,12 +24,12 @@ export function validateUrl(url) {
   if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
     throw new Error(`URL must use http or https protocol, got: ${parsed.protocol}`);
   }
+  return url;
 }
 
 export async function build(options) {
-  const { name, icon, url, target = 'installer', output = './dist' } = options;
-
-  validateUrl(url);
+  const { name, icon, target = 'installer', output = './dist' } = options;
+  const url = normalizeUrl(options.url);
   await validateIcon(icon);
   const appId = generateAppId(name);
 
