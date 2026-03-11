@@ -120,31 +120,20 @@ function createWindow() {
 
   mainWindow.on('resize', updateContentBounds);
 
-  contentView.webContents.setWindowOpenHandler(({ url, features }) => {
-    const isPopup = features !== '';
-    if (isPopup) {
-      // OAuth and other popups: open in a new Electron window
+  contentView.webContents.setWindowOpenHandler(({ url }) => {
+    // Open cross-origin new windows in an Electron popup (for OAuth etc.)
+    if (new URL(url).origin !== APP_ORIGIN) {
       const popup = new BrowserWindow({
         width: 500,
         height: 700,
         parent: mainWindow,
         webPreferences: { contextIsolation: true, nodeIntegration: false },
       });
+      popup.webContents.setUserAgent(chromeUA);
       popup.loadURL(url);
       return { action: 'deny' };
     }
-    if (new URL(url).origin !== APP_ORIGIN) {
-      shell.openExternal(url);
-      return { action: 'deny' };
-    }
     return { action: 'allow' };
-  });
-
-  contentView.webContents.on('will-navigate', (event, url) => {
-    if (new URL(url).origin !== APP_ORIGIN) {
-      event.preventDefault();
-      shell.openExternal(url);
-    }
   });
 
   // Search result forwarding
