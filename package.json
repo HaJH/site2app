@@ -1,6 +1,6 @@
 {
   "name": "site2app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Wrap any URL into a standalone desktop app",
   "type": "module",
   "bin": {
@@ -10,7 +10,12 @@
     "test": "vitest run",
     "test:watch": "vitest"
   },
-  "keywords": ["electron", "desktop", "wrapper", "nativefier"],
+  "keywords": [
+    "electron",
+    "desktop",
+    "wrapper",
+    "nativefier"
+  ],
   "author": "HaJH",
   "repository": {
     "type": "git",
