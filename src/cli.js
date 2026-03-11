@@ -24,7 +24,7 @@ export function validateUrl(url) {
 }
 
 export async function build(options) {
-  const { name, icon, url, target = 'dir', output = './dist' } = options;
+  const { name, icon, url, target = 'installer', output = './dist' } = options;
 
   validateUrl(url);
   await validateIcon(icon);
@@ -100,7 +100,7 @@ program
   .requiredOption('--name <name>', 'App name')
   .requiredOption('--icon <path>', 'App icon path (PNG, min 256x256)')
   .requiredOption('--url <url>', 'URL to load')
-  .option('--target <type>', 'Build target: dir, portable, installer', 'dir')
+  .option('--target <type>', 'Build target: dir, portable, installer', 'installer')
   .option('--output <path>', 'Output directory', './dist')
   .action(async (options) => {
     try {

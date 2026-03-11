@@ -53,20 +53,20 @@ site2app --name <name> --icon <path> --url <url> [--target <type>] [--output <pa
 | `--name` | Yes | App name | - |
 | `--icon` | Yes | PNG icon path (min 256x256) | - |
 | `--url` | Yes | URL to wrap | - |
-| `--target` | No | `dir`, `portable`, `installer` | `dir` |
+| `--target` | No | `dir`, `portable`, `installer` | `installer` |
 | `--output` | No | Output directory | `./dist` |
 
 ### Examples
 
 ```bash
-# Unpacked build (fastest, good for testing)
+# Installer (default, NSIS on Windows, DMG on macOS)
 site2app --name "Google" --icon google.png --url https://www.google.com
 
 # Portable executable
 site2app --name "Google" --icon google.png --url https://www.google.com --target portable
 
-# Installer (NSIS on Windows, DMG on macOS)
-site2app --name "Google" --icon google.png --url https://www.google.com --target installer
+# Unpacked build (fastest, good for testing)
+site2app --name "Google" --icon google.png --url https://www.google.com --target dir
 
 # Local dev server
 site2app --name "DevServer" --icon server.png --url http://localhost:3000
