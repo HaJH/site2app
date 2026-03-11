@@ -20,18 +20,24 @@ Wrap any URL into a standalone desktop app powered by Electron.
 - Node.js 18+
 - Windows or macOS
 
+## Quick Start
+
+```bash
+npx site2app --name "MyApp" --icon icon.png --url https://example.com
+```
+
 ## Installation
+
+```bash
+npm install -g site2app
+```
+
+Or install from source:
 
 ```bash
 git clone https://github.com/HaJH/site2app.git
 cd site2app
-npm install
-```
-
-### Global install (optional)
-
-```bash
-npm install -g .
+npm install && npm install -g .
 ```
 
 ## Usage
@@ -64,12 +70,6 @@ site2app --name "Google" --icon google.png --url https://www.google.com --target
 
 # Local dev server
 site2app --name "DevServer" --icon server.png --url http://localhost:3000
-```
-
-### Without global install
-
-```bash
-node src/cli.js --name "MyApp" --icon icon.png --url https://example.com
 ```
 
 ## Build Targets
