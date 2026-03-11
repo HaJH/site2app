@@ -1,0 +1,31 @@
+{
+  "name": "site2app",
+  "version": "0.1.0",
+  "description": "Wrap any URL into a standalone desktop app",
+  "type": "module",
+  "bin": {
+    "site2app": "./src/cli.js"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": ["electron", "desktop", "wrapper", "nativefier"],
+  "author": "HaJH",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HaJH/site2app"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^13.0.0",
+    "fs-extra": "^11.0.0",
+    "image-size": "^2.0.0",
+    "png-to-ico": "^2.1.0",
+    "png2icons": "^2.0.1",
+    "electron-builder": "^26.0.0"
+  },
+  "devDependencies": {
+    "vitest": "^3.0.0"
+  }
+}

@@ -1,0 +1,7 @@
+test/
+docs/
+.claude/
+.gitattributes
+.superpowers/
+vitest.config.js
+*.tgz
